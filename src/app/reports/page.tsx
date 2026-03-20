@@ -1,7 +1,7 @@
 'use client'
 import Sidebar from '@/components/Sidebar'
 import { useState } from 'react'
-import { useReports, Report } from '@/context/ReportContext'
+import { useReports, Report, ReportType } from '@/context/ReportContext'
 import { useToast } from '@/context/ToastContext'
 import ReportModal from '@/components/ReportModal'
 import ReportPreviewModal from '@/components/ReportPreviewModal'
@@ -16,7 +16,7 @@ export default function Reports() {
   const { reports, customReports, addReport, deleteReport } = useReports()
   const { addToast, removeToast } = useToast()
 
-  const handleGeneratePredefined = async (name: string, type: 'PDF' | 'Excel' = 'PDF') => {
+  const handleGeneratePredefined = async (name: string, type: ReportType = 'PDF') => {
     const toastId = addToast(`Generating ${name}...`, 'loading')
     await addReport({
       name,
