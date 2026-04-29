@@ -65,12 +65,9 @@ export default function Reports() {
     <div style={{ display: 'flex', minHeight: '100vh', background: '#0f1117' }}>
       <Sidebar />
       
-      <main style={{
-        marginLeft: '200px', flex: 1, padding: '32px', minHeight: '100vh',
-        background: '#0f1117', maxWidth: 'calc(100vw - 200px)', overflowX: 'hidden',
-      }}>
+      <main className="main-content">
         {/* Header Section */}
-        <header style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '32px' }}>
+        <header style={{ display: 'flex', flexWrap: 'wrap', alignItems: 'center', justifyContent: 'space-between', gap: '16px', marginBottom: '32px' }}>
           <div>
             <h1 style={{ color: '#f1f5f9', fontSize: '24px', fontWeight: 700, letterSpacing: '-0.02em', fontFamily: 'Space Grotesk, sans-serif' }}>
               Reports
@@ -162,7 +159,7 @@ export default function Reports() {
         </div>
 
         {activeTab === 'predefined' ? (
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '16px', marginBottom: '48px' }}>
+          <div className="grid-3" style={{ marginBottom: '48px' }}>
             <ReportCard 
               icon="%" iconColor="#f43f5e" iconBg="rgba(244,63,94,0.1)"
               title="Performance Summary" desc="Overview of key metrics and KPIs" time="2 hours ago"

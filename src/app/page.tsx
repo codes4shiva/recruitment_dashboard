@@ -33,17 +33,7 @@ const {
 
       <Sidebar />
 
-      <main
-        style={{
-          marginLeft: '200px',
-          flex: 1,
-          padding: '24px',
-          minHeight: '100vh',
-          background: '#0f1117',
-          maxWidth: 'calc(100vw - 200px)',
-          overflowX: 'hidden',
-        }}
-      >
+      <main className="main-content">
 
         <Header
           dateRange={dateRange}
@@ -51,14 +41,7 @@ const {
         />
 
         {/* KPI Cards */}
-        <div
-          style={{
-            display: 'grid',
-            gridTemplateColumns: 'repeat(4, minmax(0, 1fr))',
-            gap: '12px',
-            marginBottom: '16px',
-          }}
-        >
+        <div className="grid-4" style={{ marginBottom: '16px' }}>
           {currentData.kpis.map(card => (
             <KpiCard
               key={card.label}
@@ -68,27 +51,13 @@ const {
         </div>
 
  {/* Charts */}
-<div
-  style={{
-    display: 'grid',
-    gridTemplateColumns: '50fr 35fr',
-    gap: '12px',
-    marginBottom: '16px',
-  }}
->
+<div className="grid-60-40" style={{ marginBottom: '16px' }}>
   <PerformanceChart data={currentData.performance} />
   <ChannelChart data={currentData.channels} />
 </div>
 
 {/* Bottom Cards */}
-<div
-  style={{
-    display: 'grid',
-    gridTemplateColumns: '50fr 35fr',
-    gap: '12px',
-    marginBottom: '16px',
-  }}
->
+<div className="grid-60-40" style={{ marginBottom: '16px' }}>
   <TopCampaigns campaigns={campaigns} />
   <RecentActivity />
 </div>

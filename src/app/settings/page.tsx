@@ -87,7 +87,7 @@ export default function SettingsPage() {
     <div style={{ display: 'flex', minHeight: '100vh', background: '#0f1117' }}>
       <Sidebar />
       
-      <main style={{ marginLeft: '200px', flex: 1, padding: '32px', maxWidth: '1200px', overflowX: 'hidden' }}>
+      <main className="main-content" style={{ maxWidth: '1200px' }}>
         
         {/* Top Header */}
         <div style={{ marginBottom: '32px' }}>
@@ -99,10 +99,10 @@ export default function SettingsPage() {
           </p>
         </div>
 
-        <div style={{ display: 'flex', gap: '32px', alignItems: 'flex-start' }}>
+        <div className="flex-responsive">
           
           {/* Settings Sidebar (Tabs) */}
-          <div style={{ 
+          <div className="settings-sidebar" style={{ 
             width: '240px', background: '#151822', borderRadius: '16px', 
             padding: '16px', border: '1px solid rgba(255,255,255,0.03)',
             flexShrink: 0

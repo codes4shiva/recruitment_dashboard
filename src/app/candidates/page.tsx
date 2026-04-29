@@ -60,7 +60,7 @@ export default function CandidatesPage() {
     <div style={{ display: 'flex', minHeight: '100vh', background: '#0f1117' }}>
       <Sidebar />
 
-      <main style={{ marginLeft: '200px', flex: 1, padding: '32px', minHeight: '100vh', maxWidth: 'calc(100vw - 200px)', overflowX: 'hidden' }}>
+      <main className="main-content">
         
         {/* Top Title Section */}
         <div style={{ marginBottom: '24px' }}>
@@ -76,7 +76,7 @@ export default function CandidatesPage() {
         <div style={{ background: '#151822', borderRadius: '24px', padding: '32px', border: '1px solid rgba(255,255,255,0.03)', boxShadow: '0 10px 30px rgba(0,0,0,0.2)', minHeight: '700px' }}>
           
           {/* Controls Header */}
-          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '32px' }}>
+          <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'space-between', alignItems: 'center', gap: '16px', marginBottom: '32px' }}>
             <div>
               <h2 style={{ color: '#f8fafc', fontSize: '20px', fontWeight: 700, fontFamily: 'Space Grotesk, sans-serif' }}>
                 Applicant Tracking
@@ -86,7 +86,7 @@ export default function CandidatesPage() {
               </p>
             </div>
 
-            <div style={{ display: 'flex', gap: '16px' }}>
+            <div style={{ display: 'flex', flexWrap: 'wrap', gap: '16px' }}>
               <div style={{ position: 'relative' }}>
                 <span style={{ position: 'absolute', left: '12px', top: '50%', transform: 'translateY(-50%)', fontSize: '14px' }}>🔍</span>
                 <input 
@@ -124,7 +124,7 @@ export default function CandidatesPage() {
 
           {/* Data Table */}
           <div style={{ overflowX: 'auto' }}>
-            <table style={{ width: '100%', borderCollapse: 'collapse', textAlign: 'left' }}>
+            <table style={{ width: '100%', borderCollapse: 'collapse', textAlign: 'left', minWidth: '800px' }}>
               <thead>
                 <tr style={{ borderBottom: '1px solid rgba(255,255,255,0.05)' }}>
                   <th style={{ padding: '16px', color: '#64748b', fontSize: '12px', fontWeight: 600, fontFamily: 'Space Grotesk, sans-serif' }}>CANDIDATE</th>

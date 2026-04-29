@@ -1,4 +1,5 @@
 'use client'
+import { useState } from 'react'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { useUser } from '@/context/UserContext'
@@ -15,12 +16,23 @@ const links = [
 export default function Sidebar() {
   const pathname = usePathname()
   const { name, email, avatar } = useUser()
+  const [isOpen, setIsOpen] = useState(false)
+
   return (
-    <aside style={{
-      position: 'fixed', left: 0, top: 0, height: '100vh', width: '200px',
-      background: '#0d1018', borderRight: '1px solid rgba(255,255,255,0.07)',
-      display: 'flex', flexDirection: 'column', zIndex: 50,
-    }}>
+    <>
+      {/* Mobile Toggle Button */}
+      <button className="mobile-nav-toggle" onClick={() => setIsOpen(!isOpen)}>
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+      </button>
+
+      {/* Mobile Overlay */}
+      <div className={`mobile-overlay ${isOpen ? 'open' : ''}`} onClick={() => setIsOpen(false)} />
+
+      <aside className={`sidebar-container ${isOpen ? 'open' : ''}`} style={{
+        position: 'fixed', left: 0, top: 0, height: '100vh', width: '200px',
+        background: '#0d1018', borderRight: '1px solid rgba(255,255,255,0.07)',
+        display: 'flex', flexDirection: 'column', zIndex: 50,
+      }}>
       {/* Logo */}
       <div style={{ padding: '24px 20px', borderBottom: '1px solid rgba(255,255,255,0.07)' }}>
         <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
@@ -76,6 +88,7 @@ export default function Sidebar() {
         </div>
       </div>
     </aside>
+    </>
   )
 }
 

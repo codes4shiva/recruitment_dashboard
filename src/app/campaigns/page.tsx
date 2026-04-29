@@ -57,10 +57,10 @@ export default function CampaignsPage() {
   return (
     <div style={{ display:'flex', minHeight:'100vh', background:'#0f1117' }}>
       <Sidebar />
-      <main style={{ marginLeft:'200px', flex:1, padding:'24px', background:'#0f1117' }}>
+      <main className="main-content">
 
         {/* Header */}
-        <div style={{ display:'flex', alignItems:'center', justifyContent:'space-between', marginBottom:'24px' }}>
+        <div style={{ display:'flex', flexWrap:'wrap', alignItems:'center', justifyContent:'space-between', gap:'16px', marginBottom:'24px' }}>
           <div>
             <h1 style={{ color:'#f1f5f9', fontSize:'22px', fontWeight:600, fontFamily:'Space Grotesk,sans-serif' }}>Your Campaigns</h1>
             <p style={{ color:'#475569', fontSize:'13px', fontFamily:'DM Sans,sans-serif', marginTop:'2px' }}>{campaigns.length} of {campaigns.length} campaigns</p>
@@ -71,7 +71,7 @@ export default function CampaignsPage() {
         </div>
 
         {/* Filters */}
-        <div style={{ display:'flex', gap:'12px', marginBottom:'16px' }}>
+        <div style={{ display:'flex', flexWrap:'wrap', gap:'12px', marginBottom:'16px' }}>
           <input placeholder="Search campaigns..." value={search} onChange={e => setSearch(e.target.value)}
             style={{ ...inp, flex:1, maxWidth:'280px' }} />
           <select value={filterStatus} onChange={e => setFilterStatus(e.target.value)} style={{ ...inp, width:'auto', cursor:'pointer' }}>
@@ -85,8 +85,8 @@ export default function CampaignsPage() {
         </div>
 
         {/* Table */}
-        <div style={{ background:'#151822', border:'1px solid rgba(255,255,255,0.08)', borderRadius:'16px', overflow:'hidden' }}>
-          <table style={{ width:'100%', borderCollapse:'collapse' }}>
+        <div style={{ background:'#151822', border:'1px solid rgba(255,255,255,0.08)', borderRadius:'16px', overflowX:'auto' }}>
+          <table style={{ width:'100%', borderCollapse:'collapse', minWidth:'800px' }}>
             <thead>
               <tr style={{ borderBottom:'1px solid rgba(255,255,255,0.06)' }}>
                 {['Campaign','Channel','Status','Budget','Spent','Clicks','Applies','CPA','Actions'].map(h => (

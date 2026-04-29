@@ -79,7 +79,7 @@ export default function AnalyticsPage() {
     <div style={{ display: 'flex', minHeight: '100vh', background: '#0f1117' }}>
       <Sidebar />
 
-      <main style={{ marginLeft: '200px', flex: 1, padding: '32px', minHeight: '100vh', background: '#0f1117', maxWidth: 'calc(100vw - 200px)', overflowX: 'hidden' }}>
+      <main className="main-content">
         
         {/* Top Title Section */}
         <div style={{ marginBottom: '24px' }}>
@@ -95,7 +95,7 @@ export default function AnalyticsPage() {
         <div style={{ background: '#151822', borderRadius: '24px', padding: '32px', border: '1px solid rgba(255,255,255,0.03)', boxShadow: '0 10px 30px rgba(0,0,0,0.2)' }}>
           
           {/* Inner Header */}
-          <header style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '32px' }}>
+          <header style={{ display: 'flex', flexWrap: 'wrap', alignItems: 'center', justifyContent: 'space-between', marginBottom: '32px', gap: '16px' }}>
             <div>
               <h2 style={{ color: '#f8fafc', fontSize: '20px', fontWeight: 700, fontFamily: 'Space Grotesk, sans-serif' }}>
                 Analytics
@@ -144,7 +144,7 @@ export default function AnalyticsPage() {
           </header>
 
           {/* KPI Cards */}
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '16px', marginBottom: '32px' }}>
+          <div className="grid-4" style={{ marginBottom: '32px' }}>
             {kpis.map((kpi, idx) => (
               <div key={idx} style={{ background: '#1a1f2e', borderRadius: '16px', padding: '24px', border: '1px solid rgba(255,255,255,0.03)' }}>
                 <p style={{ color: '#94a3b8', fontSize: '12px', marginBottom: '8px', fontFamily: 'Space Grotesk, sans-serif' }}>{kpi.label}</p>
@@ -157,7 +157,7 @@ export default function AnalyticsPage() {
           </div>
 
           {/* Tabs */}
-          <div style={{ display: 'flex', gap: '12px', borderBottom: '1px solid rgba(255,255,255,0.05)', paddingBottom: '24px', marginBottom: '24px' }}>
+          <div style={{ display: 'flex', flexWrap: 'wrap', gap: '12px', borderBottom: '1px solid rgba(255,255,255,0.05)', paddingBottom: '24px', marginBottom: '24px' }}>
             {['Overview', 'Channels', 'Campaigns', 'Locations', 'Devices'].map(tab => (
               <button 
                 key={tab}
@@ -180,12 +180,12 @@ export default function AnalyticsPage() {
             
             {activeTab === 'Overview' && (
               <>
-                <div style={{ display: 'grid', gridTemplateColumns: '60fr 40fr', gap: '24px', height: '350px' }}>
+                <div className="grid-60-40" style={{ minHeight: '350px' }}>
                   <PerformanceChart data={data.performance} />
                   <FunnelChart data={funnelData} />
                 </div>
 
-                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '24px', height: '240px' }}>
+                <div className="grid-3" style={{ minHeight: '240px' }}>
                   <JobCategoryChart range={dataKey} />
                   <LocationChart range={dataKey} />
                   <DeviceChart range={dataKey} />
